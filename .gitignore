@@ -1,0 +1,28 @@
+# exclude all
+/*
+
+# include important folders
+!README.txt
+!CREDITS-fml.txt
+!LICENSE-fml.txt
+!MinecraftForge-Credits.txt
+!MinecraftForge-License.txt
+!forge-1.8-11.14.3.1450-changelog.txt
+!release/
+
+# need gradle 
+!gradle/
+!gradlew
+!gradlew.bat
+!build.gradle
+
+# include markdowns
+!LICENSE
+
+# include sourcecode
+!src/
+
+# include git important files
+!.gitmodules
+!.gitignore
+

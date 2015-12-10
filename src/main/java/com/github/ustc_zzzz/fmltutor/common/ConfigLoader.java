@@ -9,6 +9,8 @@ public class ConfigLoader
 
     public static int diamondBurnTime;
 
+    public static int enchantmentFireBurnId;
+
     public ConfigLoader(FMLPreInitializationEvent event)
     {
         config = new Configuration(event.getSuggestedConfigurationFile());
@@ -22,5 +24,6 @@ public class ConfigLoader
     private static void registerConfig()
     {
         diamondBurnTime = config.get(Configuration.CATEGORY_GENERAL, "diamondBurnTime", 640).getInt();
+        enchantmentFireBurnId = config.get(Configuration.CATEGORY_GENERAL, "enchantmentFireBurnId", 36).getInt();
     }
 }

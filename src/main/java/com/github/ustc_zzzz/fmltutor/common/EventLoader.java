@@ -8,12 +8,14 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.EntityInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.world.BlockEvent;
@@ -24,6 +26,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 
 import com.github.ustc_zzzz.fmltutor.enchantment.EnchantmentLoader;
+import com.github.ustc_zzzz.fmltutor.potion.PotionLoader;
 
 public class EventLoader
 {
@@ -113,6 +116,26 @@ public class EventLoader
                             event.drops.remove(stack);
                         }
                     }
+                }
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public void onLivingHurt(LivingHurtEvent event)
+    {
+        if (event.source.getDamageType().equals("fall"))
+        {
+            PotionEffect effect = event.entityLiving.getActivePotionEffect(PotionLoader.potionFallProtection);
+            if (effect != null)
+            {
+                if (effect.getAmplifier() == 0)
+                {
+                    event.ammount /= 2;
+                }
+                else
+                {
+                    event.ammount = 0;
                 }
             }
         }

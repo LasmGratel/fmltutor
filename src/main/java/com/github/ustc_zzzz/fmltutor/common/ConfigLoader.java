@@ -11,6 +11,8 @@ public class ConfigLoader
 
     public static int enchantmentFireBurnId;
 
+    public static int potionFallProtectId;
+
     public ConfigLoader(FMLPreInitializationEvent event)
     {
         config = new Configuration(event.getSuggestedConfigurationFile());
@@ -25,5 +27,6 @@ public class ConfigLoader
     {
         diamondBurnTime = config.get(Configuration.CATEGORY_GENERAL, "diamondBurnTime", 640).getInt();
         enchantmentFireBurnId = config.get(Configuration.CATEGORY_GENERAL, "enchantmentFireBurnId", 36).getInt();
+        potionFallProtectId = config.get(Configuration.CATEGORY_GENERAL, "potionFallProtectId", 32).getInt();
     }
 }

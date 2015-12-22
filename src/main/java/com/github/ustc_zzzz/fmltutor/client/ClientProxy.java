@@ -19,6 +19,7 @@ public class ClientProxy extends CommonProxy
     {
         super.init(event);
         new ItemRenderLoader();
+        new KeyLoader();
     }
 
     @Override

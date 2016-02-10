@@ -33,6 +33,7 @@ public class CommonProxy
         new AchievementLoader();
         new EventLoader();
         new WorldGeneratorLoader();
+        new OreDictionaryLoader();
     }
 
     public void postInit(FMLPostInitializationEvent event)
